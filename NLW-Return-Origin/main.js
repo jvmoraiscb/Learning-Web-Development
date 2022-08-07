@@ -1,9 +1,26 @@
+window.addEventListener("scroll", onScroll);
+
+onScroll();
 function onScroll() {
+  showNavOnScroll();
+  showBackToTopButtonOnScroll();
+}
+
+function showNavOnScroll() {
   let navigation = document.getElementById("navigation");
   if (scrollY > 0) {
     navigation.classList.add("scroll");
   } else {
     navigation.classList.remove("scroll");
+  }
+}
+
+function showBackToTopButtonOnScroll() {
+  let backToTopButton = document.getElementById("backToTopButton");
+  if (scrollY > 500) {
+    backToTopButton.classList.add("show");
+  } else {
+    backToTopButton.classList.remove("show");
   }
 }
 
@@ -28,5 +45,7 @@ ScrollReveal({
           #services .card,
           #about,
           #about header,
-          #about content
+          #about content,
+          #contact header,
+          #contact content
         `);
