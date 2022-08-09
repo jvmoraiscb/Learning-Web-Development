@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 :root {
-  --hue: 170;
+  --hue: 200;
 
   --primary-color: hsl(var(--hue), 100%, 26%);
   --headline: hsl(210, 11%, 15%);
@@ -281,9 +281,9 @@ body.menu-expanded .menu {
 
 .menu .button:hover {
   background-color: var(--primary-color);
-  color: white;
+  border: 1px solid white;
 
-  filter: brightness(1.2);
+  color: white;
 }
 
 body.menu-expanded .logo,
@@ -502,11 +502,19 @@ footer .social-links {
     display: grid;
   }
 
+  .col-a {
+    grid-area: A;
+  }
+
+  .col-b {
+    grid-area: B;
+  }
+
   section {
     padding-block: 16rem;
   }
 
-  section h2 {
+  section header h2 {
     font-size: 4rem;
     line-height: 5.2rem;
   }
@@ -596,7 +604,7 @@ footer .social-links {
   nav#navigation .menu li a::after {
     content: "";
     width: 0%;
-    height: 0.2rem;
+    height: 0.3rem;
     background-color: var(--primary-color);
 
     display: block;
@@ -612,15 +620,18 @@ footer .social-links {
     background-color: white;
   }
 
+  nav#navigation .menu li a.active::after,
   nav#navigation .menu li a:hover::after {
     padding-inline: 0.8rem;
     width: 100%;
   }
 
+  nav#navigation.scroll .menu li a.active,
   nav#navigation.scroll .menu li a:hover {
     opacity: 1;
   }
 
+  nav#navigation.scroll .menu a.button.active,
   nav#navigation.scroll .menu a.button:hover {
     background-color: white;
     color: var(--primary-color);
@@ -642,13 +653,8 @@ footer .social-links {
   }
 
   #home .col-a {
-    grid-area: A;
     text-align: left;
     align-self: center;
-  }
-
-  #home .col-b {
-    grid-area: B;
   }
 
   #home h1 {
@@ -698,5 +704,54 @@ footer .social-links {
   #services .card {
     width: 30%;
     flex-grow: 1;
+  }
+
+  /*ABOUT*/
+  #about .wrapper {
+    grid-template-columns: 48rem 1fr;
+    grid-template-areas: "B A";
+    gap: 6.7rem;
+  }
+
+  #about .col-a {
+    align-self: center;
+  }
+
+  #about .content p {
+    margin-bottom: 0;
+  }
+
+  /*CONTACT*/
+  #contact .wrapper {
+    grid-template-columns: 1fr 57.5rem;
+    grid-template-areas: "A B";
+  }
+
+  #contact h2 {
+    width: 40.4rem;
+  }
+
+  /*FOOTER*/
+
+  footer {
+    padding-block: 8rem;
+  }
+
+  footer .wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "A B";
+  }
+
+  footer .col-a {
+    align-self: center;
+  }
+
+  footer .col-b {
+    align-self: center;
+    justify-self: end;
+  }
+
+  footer p {
+    margin-bottom: 0;
   }
 }
